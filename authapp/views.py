@@ -32,10 +32,10 @@ def signup(request):
             messages.error(request, "Something Went Wrong")
             return redirect(request, '/auth/login')
     
-    render(request, 'signup.html')
+    return render(request, 'signup.html')
     
     
-def login(request):
+def authlogin(request):
     if request.method=='POST':
         email = request.POST.get('email')
         password1 = request.POST.get('password')
@@ -44,7 +44,7 @@ def login(request):
         if myuser is not None:
             login(request, myuser)
             messages.success(request, "Login Successful")
-            return('/')
+            return redirect('/')
         else:
             messages.error(request, "Invalid Credentials")
     return render (request, 'login.html')
