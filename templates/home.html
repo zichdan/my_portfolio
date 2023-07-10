@@ -1,0 +1,35 @@
+{% extends 'basic.html' %} {% block tittle %} Zichdan {% endblock tittle %}
+{%block Hero %}
+
+<!-- ======= Hero Section ======= -->
+<section
+  id="hero"
+  class="d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="hero-container" data-aos="fade-in">
+    <h1>Daniel Ezichi</h1>
+    <p>
+      I'm
+      <span
+        class="typed"
+        data-typed-items="Designer, Developer, Freelancer, Photographer"
+      ></span>
+    </p>
+  </div>
+</section>
+<!-- End Hero -->
+
+{% endblock Hero %} {% block body %} {% for message in messages %}
+<div
+  class="alert alert-{{ message.tags }} alert-dismissible fade show"
+  role="alert"
+>
+  <strong>{{message}}</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %} {% endblock body %}
