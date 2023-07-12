@@ -36,6 +36,9 @@ def signup(request):
     
     
 def authlogin(request):
+    # if request.user.is_authenticated:
+    #     return redirect('/')
+    
     if request.method=='POST':
         email = request.POST.get('email')
         password1 = request.POST.get('password')
@@ -52,7 +55,7 @@ def authlogin(request):
     
     
 
-def logout(request):
+def authlogout(request):
     return render(request, 'logout.html')
 
 
