@@ -54,8 +54,15 @@ def authlogin(request):
     
     
     
+    
 
 def authlogout(request):
-    return render(request, 'logout.html')
+    logout(request)
+    return redirect('/')
+    
+    
+
+# def authlogout(request):
+#     return render(request, 'logout.html')
 
 
