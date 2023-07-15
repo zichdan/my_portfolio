@@ -24,13 +24,15 @@ def signup(request):
             pass
         
         user = User.objects.create_user( email, password1, password2)
-        try:
-            user.save()
-            messages.success(request, "User Created Successful, Please Login!")
-            return redirect('/auth/login')
-        except:
-            messages.error(request, "Something Went Wrong")
-            return redirect(request, '/auth/login')
+        user.save()
+        
+        user = authenticate(username=email, password=password1)
+        
+        
+        if user is not None:
+            login(request, user)
+            messages.success(request, "User Created & Login Successful")
+            return redirect('/')
     
     return render(request, 'signup.html')
     
