@@ -13,16 +13,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import dj_database_url
-import environ
+# setings for using dj_database_url and django_environ to setup your database
+# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-env = environ.Env()
+# import dj_database_url
+# import environ
 
-environ.Env.read_env()
+# env = environ.Env()
+
+# environ.Env.read_env()
 
 
 
@@ -30,7 +36,7 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#rgu*q+yqgxy8vp+m&i*oa85r6v#u^51yvf%kr@o76nn%bd(lx'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,17 +92,17 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# render postgresql database setup
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# # render postgresql database setup
+# DATABASES = {
+#     'default': dj_database_url.parse(env('DATABASE_URL'))
+# }
 
 
 
@@ -138,7 +144,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 STATICFILES_DIRS = [
