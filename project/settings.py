@@ -41,7 +41,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split("my-portfolio-rkc9.onrender.com localhost")
 
 
 # Application definition
@@ -103,9 +103,9 @@ DATABASES = {
 
 
 # # render postgresql database setup
-DATABASE_URL = os.environ.get('DATABASE_URL')
+database_url = os.environ.get('DATABASE_URL')
 
-DATABASES['default'] = dj_database_url.parse(DATABASE_URL)
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 
