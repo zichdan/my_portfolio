@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # setings for using dj_database_url and django_environ to setup your database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# import dj_database_url
+import dj_database_url
 # import environ
 
 # env = environ.Env()
@@ -39,9 +39,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False').lower() == "true"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
 
 
 # Application definition
@@ -99,10 +99,13 @@ DATABASES = {
     }
 }
 
+# postgres://my_portfolio_g1uw_user:QZVldylu6MpLFtg6Ph7kwab6fghuPD6I@dpg-ciq49penqql4qa3olr70-a.oregon-postgres.render.com/my_portfolio_g1uw
+
+
 # # render postgresql database setup
-# DATABASES = {
-#     'default': dj_database_url.parse(env('DATABASE_URL'))
-# }
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+DATABASES['default'] = dj_database_url.parse(DATABASE_URL)
 
 
 
