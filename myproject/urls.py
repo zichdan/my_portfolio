@@ -5,5 +5,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('portfolio/', views.portfolio, name='portfolio'),
-    re_path(r"^downloadresume/(?P<path>.*)$", serve, {'document_root': settings.MEDIA_ROOT}),
+    path('resume/', views.resume, name='resume'),
+    re_path(r"^download/(?P<path>.*)$", serve, {'document_root': settings.MEDIA_ROOT}),
+    # path('download/<str:path>/', views.download, name='download'),
+    
+    
 ]

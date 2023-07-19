@@ -1,5 +1,4 @@
 from django.conf import settings
-from project import settings
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from myproject.models import *
@@ -37,7 +36,7 @@ def resume(request):
     }
     return render(request, 'resume.html', context)
 
-def downloadresume(request, path):
+def download(request, path):
     file_path = os.path.join(settings.MEDIA_ROOT, path)
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:

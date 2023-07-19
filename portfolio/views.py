@@ -25,11 +25,6 @@ def testimonial(request):
     return render(request, 'testimonial.html')
 
 
-def resume(request):
-    return render(request, 'resume.html')
-
-
-
 
 
 def internshipdetails(request):

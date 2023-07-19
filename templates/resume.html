@@ -212,9 +212,10 @@
 
 
 {% if resumes %}
+
 {% for resume in resumes %}
 <h2 class="tittle">{{ resume.tittle }}</h2>
-<a href="{{resume.file.url}}" download="{{resume.tittle}}">Download</a>
+<a href="{{resume.file.url}}" download="{{resume.file.url}}">Download</a>
 {% endfor %}
 {% else %}
 <h2 class="tittle">No Resume Uploaded Yet!!!</h2>
