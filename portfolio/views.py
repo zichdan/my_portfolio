@@ -1,11 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from portfolio.models import Contact, Blogs, Internship
+from .models import Contact, Blogs, Internship
+from myproject.models import *
+
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    resumes = Resume.objects.all()
+    
+    context = {
+        "resumes": resumes
+    }
+    
+    return render(request, 'home.html', context)
 
 
 

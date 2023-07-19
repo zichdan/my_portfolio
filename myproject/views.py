@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from myproject.models import *
 import os
 from django.http import HttpResponse, Http404
@@ -36,12 +35,26 @@ def resume(request):
     }
     return render(request, 'resume.html', context)
 
+# def download(request, path):
+#     file_path = os.path.join(settings.MEDIA_ROOT, path)
+#     if os.path.exists(file_path):
+#         with open(file_path, 'rb') as fh:
+#             response = HttpResponse(fh.read(), content_type="application/resume")
+#             response['content-Disposition'] = 'inline;filename'+os.path.basename(file_path)
+#             return response
+#     raise Http404
+    
+    
+import mimetypes
+from django.http import FileResponse
+
 def download(request, path):
     file_path = os.path.join(settings.MEDIA_ROOT, path)
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/resume")
-            response['content-Disposition'] = 'inline;filename'+os.path.basename(file_path)
+            response = FileResponse(fh, content_type=mimetypes.guess_type(file_path)[0])
+            response['Content-Disposition'] = f'attachment; filename="{os.path.basename(file_path)}"'
             return response
     raise Http404
+    
     

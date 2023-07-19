@@ -205,23 +205,42 @@
         </div>
       </div>
     </div>
+
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+        <div class="section-title">
+          {% if resumes %}
+    
+          {% for resume in resumes %}
+          <h2 class="tittle">{{ resume.tittle }}</h2>
+          <a href="{{resume.file.url}}" download="{{resume.file.url}}">Download</a>
+          {% endfor %}
+          {% else %}
+          <h2 class="tittle">No Resume Uploaded Yet!!!</h2>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    <section>
+      
+      {% if resumes %}
+
+      {% for resume in resumes %}
+      <h2 class="tittle">{{ resume.tittle }}</h2>
+      <a href="{{resume.file.url}}" class="download-link" download="{{resume.file.url}}">Download</a>
+      {% endfor %}
+      {% else %}
+      <h2 class="tittle">No Resume Uploaded Yet!!!</h2>
+      {% endif %}
+    </section>
+
   </section><!-- End Skills Section -->
 
 
 </section><!-- End Resume Section -->
-
-
-{% if resumes %}
-
-{% for resume in resumes %}
-<h2 class="tittle">{{ resume.tittle }}</h2>
-<a href="{{resume.file.url}}" download="{{resume.file.url}}">Download</a>
-{% endfor %}
-{% else %}
-<h2 class="tittle">No Resume Uploaded Yet!!!</h2>
-{% endif %}
-  
-
-
-
 {% endblock body %}
+
+{% block scripts %}
+
+
+{% endblock scripts %}
