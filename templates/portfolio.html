@@ -78,4 +78,66 @@
 
 
 
+{% comment %} 
+                   <!-- COMMENTED TABLE FOR FUTURE REFERENCE                            -->
+
+  <section>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ _('List of all users') }}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>{{ _('Username') }}</th>
+                      <th>{{ _('Email') }}</th>
+                      <th>{{ _('Role') }}</th>
+                      <th>{{ _('Status') }}</th>
+                      <th>{{ _('Actions') }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for user in users %}
+                    <tr>
+                      <td>{{ user.username }}</td>
+                      <td>{{ user.email }}</td>
+                      <td>{{ user.role }}</td>
+                      <td>{{ user.status }}</td>
+                      <td>
+                        <a
+                          {%
+                          comment
+                          %}
+                          href=""
+                          {%
+                          endcomment
+                          %}
+                          class="btn btn-primary btn-xs"
+                        >
+                          <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--          END OF  COMMENTED TABLE FOR FUTURE REFERENCE                            -->
+
+
+ {% endcomment %}
+
+
 {% endblock body %}
