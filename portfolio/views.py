@@ -7,6 +7,8 @@ from portfolio.models import Contact, Blogs, Internship
 def home(request):
     return render(request, 'home.html')
 
+
+
 def blog(request):
     posts = Blogs.objects.all()
     
@@ -26,14 +28,8 @@ def testimonial(request):
 def resume(request):
     return render(request, 'resume.html')
 
-def portfolio(request):
-    return render(request, 'portfolio.html')
 
-def services(request):
-    return render(request, 'services.html')
 
-def skills(request):
-    return render(request, 'skills.html')
 
 
 def internshipdetails(request):
