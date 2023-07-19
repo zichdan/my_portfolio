@@ -22,4 +22,5 @@ class InternshipAdmin(admin.ModelAdmin):
     
     search_fields = ('fullname', 'usn', 'email')    
     list_filter = ( 'college_name','proj_report', 'offer_status', )
+    
 admin.site.register(Internship, InternshipAdmin)

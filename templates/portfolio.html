@@ -18,6 +18,29 @@
       </div>
 
       <div class="row">
+
+      
+      {% if projects %}
+        
+      {% for project in projects  %}
+
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+          <h4 class="title"><a href="">{{ project.tittle }}</a></h4>
+          <p class="description">{{ project.description }}</p>
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="{{ project.proj_img.url }}" class="img-fluid" alt="no-image">
+          </div>
+          <p>Updated On : <b>{{ project.date_created }}</b></p>
+        </div>
+      {% endfor %}
+      {% else %}
+      <section>
+        <div>
+          <h1>No Projects Yet</h1>
+        </div>
+      </section>
+      {% endif %}
+
         <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
           <div class="icon"><i class="bi bi-briefcase"></i></div>
           <h4 class="title"><a href="">Lorem Ipsum</a></h4>
