@@ -1,4 +1,14 @@
-{% extends 'basic.html' %} {% block tittle %} Zichdan {% endblock tittle %}
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block tittle %} Zichdan {% endblock tittle %}
+
+{% block stylecss %}
+<link href="{% static 'assets/css/add.css' %}" rel="stylesheet">
+
+{% endblock stylecss %}
+
+
 {%block Hero %}
 
 <!-- ======= Hero Section ======= -->
@@ -16,10 +26,24 @@
       ></span>
     </p>
   </div>
+  <section>
+  </section>
+  <section>
+    <div class="btn-box">
+      <a href="#" class="btn">Portfolio</a>
+      <a href="#" class="btn">About Me</a>
+      <a href="#" class="btn">Download CV</a>
+      <a href="#" class="btn">Contact Me</a>
+    </div>
+  </section>
+  
+
 </section>
 <!-- End Hero -->
 
-{% endblock Hero %} {% block body %} {% for message in messages %}
+{% endblock Hero %} 
+
+{% block body %} {% for message in messages %}
 <div
   class="alert alert-{{ message.tags }} alert-dismissible fade show"
   role="alert"
@@ -32,4 +56,6 @@
     aria-label="Close"
   ></button>
 </div>
-{% endfor %} {% endblock body %}
+{% endfor %}
+
+{% endblock body %}
