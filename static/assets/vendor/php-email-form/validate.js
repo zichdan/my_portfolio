@@ -1,90 +1,94 @@
-// <!-- Include the reCAPTCHA script if needed -->
-(function () {
-  "use strict";
+// PYTHON DJANGO CODE FOR THE CONTACT FORM -------------BUT STRICTLY COMMENTED TO AVOID UNAVOIDABLE ERRORS ON THE CONTACT PAGE 
 
-  let forms = document.querySelectorAll('.php-email-form');
 
-  forms.forEach(function(e) {
-    e.addEventListener('submit', function(event) {
-      event.preventDefault();
 
-      let thisForm = this;
+// // <!-- Include the reCAPTCHA script if needed -->
+// (function () {
+//   "use strict";
 
-      let action = thisForm.getAttribute('action');
-      let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
-      let loadingElement = thisForm.querySelector('.loading');
-      let errorMessageElement = thisForm.querySelector('.error-message');
-      let sentMessageElement = thisForm.querySelector('.sent-message');
+//   let forms = document.querySelectorAll('.php-email-form');
 
-      if (!action) {
-        displayError(thisForm, 'The form action property is not set!');
-        return;
-      }
+//   forms.forEach(function(e) {
+//     e.addEventListener('submit', function(event) {
+//       event.preventDefault();
 
-      loadingElement.classList.add('d-block');
-      errorMessageElement.classList.remove('d-block');
-      sentMessageElement.classList.remove('d-block');
+//       let thisForm = this;
 
-      let formData = new FormData(thisForm);
+//       let action = thisForm.getAttribute('action');
+//       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
+//       let loadingElement = thisForm.querySelector('.loading');
+//       let errorMessageElement = thisForm.querySelector('.error-message');
+//       let sentMessageElement = thisForm.querySelector('.sent-message');
 
-      if (recaptcha) {
-        if (typeof grecaptcha !== "undefined") {
-          grecaptcha.ready(function() {
-            try {
-              grecaptcha.execute(recaptcha, {action: 'php_email_form_submit'})
-              .then(token => {
-                formData.set('recaptcha-response', token);
-                php_email_form_submit(thisForm, action, formData, loadingElement, errorMessageElement, sentMessageElement);
-              });
-            } catch(error) {
-              displayError(thisForm, error);
-            }
-          });
-        } else {
-          displayError(thisForm, 'The reCaptcha javascript API url is not loaded!');
-        }
-      } else {
-        php_email_form_submit(thisForm, action, formData, loadingElement, errorMessageElement, sentMessageElement);
-      }
-    });
-  });
+//       if (!action) {
+//         displayError(thisForm, 'The form action property is not set!');
+//         return;
+//       }
 
-  function php_email_form_submit(thisForm, action, formData, loadingElement, errorMessageElement, sentMessageElement) {
-    fetch(action, {
-      method: 'POST',
-      body: formData,
-      headers: {'X-Requested-With': 'XMLHttpRequest'}
-    })
-    .then(response => {
-      if (response.ok) {
-        return response.text();
-      } else {
-        throw new Error(`${response.status} ${response.statusText} ${response.url}`);
-      }
-    })
-    .then(data => {
-      loadingElement.classList.remove('d-block');
-      if (data.trim() == 'success') {
-        sentMessageElement.classList.add('d-block');
-        thisForm.reset();
-      } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action);
-      }
-    })
-    .catch((error) => {
-      displayError(thisForm, error);
-    });
-  }
+//       loadingElement.classList.add('d-block');
+//       errorMessageElement.classList.remove('d-block');
+//       sentMessageElement.classList.remove('d-block');
 
-  function displayError(thisForm, error) {
-    let errorMessageElement = thisForm.querySelector('.error-message');
-    let loadingElement = thisForm.querySelector('.loading');
+//       let formData = new FormData(thisForm);
+
+//       if (recaptcha) {
+//         if (typeof grecaptcha !== "undefined") {
+//           grecaptcha.ready(function() {
+//             try {
+//               grecaptcha.execute(recaptcha, {action: 'php_email_form_submit'})
+//               .then(token => {
+//                 formData.set('recaptcha-response', token);
+//                 php_email_form_submit(thisForm, action, formData, loadingElement, errorMessageElement, sentMessageElement);
+//               });
+//             } catch(error) {
+//               displayError(thisForm, error);
+//             }
+//           });
+//         } else {
+//           displayError(thisForm, 'The reCaptcha javascript API url is not loaded!');
+//         }
+//       } else {
+//         php_email_form_submit(thisForm, action, formData, loadingElement, errorMessageElement, sentMessageElement);
+//       }
+//     });
+//   });
+
+//   function php_email_form_submit(thisForm, action, formData, loadingElement, errorMessageElement, sentMessageElement) {
+//     fetch(action, {
+//       method: 'POST',
+//       body: formData,
+//       headers: {'X-Requested-With': 'XMLHttpRequest'}
+//     })
+//     .then(response => {
+//       if (response.ok) {
+//         return response.text();
+//       } else {
+//         throw new Error(`${response.status} ${response.statusText} ${response.url}`);
+//       }
+//     })
+//     .then(data => {
+//       loadingElement.classList.remove('d-block');
+//       if (data.trim() == 'success') {
+//         sentMessageElement.classList.add('d-block');
+//         thisForm.reset();
+//       } else {
+//         throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action);
+//       }
+//     })
+//     .catch((error) => {
+//       displayError(thisForm, error);
+//     });
+//   }
+
+//   function displayError(thisForm, error) {
+//     let errorMessageElement = thisForm.querySelector('.error-message');
+//     let loadingElement = thisForm.querySelector('.loading');
     
-    loadingElement.classList.remove('d-block');
-    errorMessageElement.innerHTML = error;
-    errorMessageElement.classList.add('d-block');
-  }
-})();
+//     loadingElement.classList.remove('d-block');
+//     errorMessageElement.innerHTML = error;
+//     errorMessageElement.classList.add('d-block');
+//   }
+// })();
 
 
 
@@ -107,7 +111,7 @@
 
 
 
-
+// jAVASCRIPT CODE FOR PHP CONTACT FORM -------------BUT STRICTLY COMMENTED TO AVOID UNAVOIDABLE ERRORS ON THE CONTACT PAGE 
 
 
 // /**

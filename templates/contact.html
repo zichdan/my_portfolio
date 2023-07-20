@@ -10,6 +10,20 @@
       <div class="section-title">
         <h2>Send Me A Message</h2>
       </div>
+      {% for message in messages %}
+      <div
+        class="alert alert-{{ message.tags }} alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>{{message}}</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %}
 
       <div class="row" data-aos="fade-in">
 
@@ -60,9 +74,9 @@
               <textarea class="form-control" name="message" rows="10" id="id_message" required></textarea>
             </div>
             <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="loading" style="display: none;">Loading</div>
+              <div class="error-message" style="display: none;"></div>
+              <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
             </div>
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
@@ -73,29 +87,7 @@
     </div>
   </section><!-- End Contact Section -->
 
-
-
   {% endblock body %}
-
-{% block scripts %}
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-{% endblock scripts %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
