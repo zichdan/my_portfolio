@@ -29,6 +29,51 @@ def blog(request):
 def about(request):
     return render(request, 'about.html')
 
+
+
+
+def contact(request):
+    if request.method=='POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        
+        query = Contact(name=name, email=email, subject=subject, message=message)
+        query.save()
+        messages.success(request, 'Your message has been sent. Thank you!')
+        
+        return redirect('/contact')
+    return render(request, 'contact.html')
+
+
+
+
+def contacts(request):
+    if request.method=='POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        
+        query = Contact(name=name, email=email, subject=subject, message=message,)
+        query.save()
+        messages.success(request, 'Your message has been sent. Thank you!')
+        
+        return redirect('/contacts')
+    return render(request, 'contacts.html')
+
+
+
+
+
+
+
+
+
+
+
+
 def testimonial(request):
     return render(request, 'testimonial.html')
 
@@ -72,36 +117,3 @@ def internshipdetails(request):
         return redirect('internshipdetails')
     
     return render(request, 'intern.html')
-
-
-def contact(request):
-    if request.method=='POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phonenumber = request.POST.get('num')
-        desc = request.POST.get('desc')
-        
-        query = Contact(name=name, email=email, phonenumber=phonenumber, description=desc)
-        query.save()
-        messages.success(request, 'Your message has been sent. Thank you!')
-        
-        return redirect('/contact')
-        
-    
-    return render(request, 'contact.html')
-
-def contacts(request):
-    if request.method=='POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
-        
-        query = Contact(name=name, email=email, subject=subject, message=message)
-        query.save()
-        messages.success(request, 'Your message has been sent. Thank you!')
-        
-        return redirect('/contacts')
-    return render(request, 'contacts.html')
-
-

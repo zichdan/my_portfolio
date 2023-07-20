@@ -1,4 +1,107 @@
 {% extends 'basic.html' %} {% block tittle %} Contact Us {% endblock tittle %}
+{% load static %}
+{% block body %}
+
+
+ <!-- ======= Contact Section ======= -->
+ <section  class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Send Me A Message</h2>
+      </div>
+
+      <div class="row" data-aos="fade-in">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>OKIGWE, IMO STATE,  470105, NIGERIA </p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>zichdan1999@gmail.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+234 9020 098 489</p>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6303.168072564189!2d7.3507!3d5.8292!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103aae7063e68509%3A0x96dc0443724d7a0f!2sOkigwe%2C%20Imo%20State%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1626615037390!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+          </div>
+        </div>
+
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="id_name">Your Name</label>
+                <input type="text" name="name" class="form-control" id="id_name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="id_email">Your Email</label>
+                <input type="email" class="form-control" name="email" id="id_email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="id_subject">Subject</label>
+              <input type="text" class="form-control" name="subject" id="id_subject" required>
+            </div>
+            <div class="form-group">
+              <label for="id_message">Message</label>
+              <textarea class="form-control" name="message" rows="10" id="id_message" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+
+
+  {% endblock body %}
+
+{% block scripts %}
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'basic.html' %} {% block tittle %} Contact Us {% endblock tittle %}
 {%block body %}
 
 <div class="container mt-4 p-2">
@@ -61,4 +164,4 @@
   </div>
 </div>
 
-{% endblock body %}
+{% endblock body %} {% endcomment %}
