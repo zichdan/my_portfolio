@@ -93,7 +93,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# postgres://my_portfolio_g1uw_user:QZVldylu6MpLFtg6Ph7kwab6fghuPD6I@dpg-ciq49penqql4qa3olr70-a.oregon-postgres.render.com/my_portfolio_g1uw
 
+    
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -101,13 +103,14 @@ DATABASES = {
     }
 }
 
-# postgres://my_portfolio_g1uw_user:QZVldylu6MpLFtg6Ph7kwab6fghuPD6I@dpg-ciq49penqql4qa3olr70-a.oregon-postgres.render.com/my_portfolio_g1uw
 
+# render postgresql database setup
+database_url = os.environ.get('DATABASE_URL')
 
-# # render postgresql database setup
-# database_url = os.environ.get('DATABASE_URL')
+DATABASES['default'] = dj_database_url.parse(database_url)
 
-# DATABASES['default'] = dj_database_url.parse(database_url)
+    
+    
 
 
 

@@ -3,10 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Contact(models.Model):
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=60)
     email = models.EmailField()
-    phonenumber = models.CharField(max_length=15)
-    description = models.TextField()
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True,blank=True)
 
     
     def __str__(self):
