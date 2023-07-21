@@ -8,8 +8,9 @@ from django.http import HttpResponse, Http404
 
 
 
+
 def portfolio(request):
-    projects = Portfolio.objects.all() # select * from projects
+    projects = Project.objects.all() # select * from projects
     context = {
         "projects": projects
     }
@@ -17,8 +18,15 @@ def portfolio(request):
 
 
 
+
+def portfolio_details(request):
+    return render(request, 'portfolio_details.html')
+
+
+
+
 def project_detail(request, project_id):
-    projects = Portfolio.objects.get(pk=project_id) # query projects one after another
+    projects = Project.objects.get(pk=project_id) # query projects one after another
     
     context = {"projects": projects}
     return render(request, "project_detail.html",context)

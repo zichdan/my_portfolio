@@ -36,7 +36,7 @@ def about(request):
 
 
 
-def contact(request):
+def contacts(request):
     if request.method=='POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -66,36 +66,8 @@ def contact(request):
         )
         messages.success(request, 'Your message has been sent. Thank you!')
         
-        
-        return redirect('/contact')
-    return render(request, 'contact.html')
-
-
-
-
-def contacts(request):
-    if request.method=='POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
-        
-        query = Contact(name=name, email=email, subject=subject, message=message,)
-        query.save()
-        messages.success(request, 'Your message has been sent. Thank you!')
-        
         return redirect('/contacts')
     return render(request, 'contacts.html')
-
-
-
-
-
-
-
-
-
-
 
 
 def testimonial(request):
