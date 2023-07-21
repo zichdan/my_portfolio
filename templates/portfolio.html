@@ -28,12 +28,16 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up">
             <h4 class="title"><a href="">{{ project.tittle }}</a></h4>
             <p class="description">{{ project.description }}</p>
-            <div class="col-lg-4" data-aos="fade-right">
-              <img src="{{ project.proj_img1.url }}" class="img-fluid" alt="no-image">
-            </div>
-            <p>Updated On : <b>{{ project.date_created }}</b></p>
-          </div>
+            
+            {% if project.proj_img1 %}
+              <div class="col-lg-4" data-aos="fade-right">
+                <img src="{{ project.proj_img1.url }}" class="img-fluid" alt="no-image"> 
+              </div>
+            {% else %}
+             <p>No image available for this project.</p>
 
+            {% endif %}
+          </div>
         {% endfor %}
         {% else %}
 

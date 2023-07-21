@@ -8,8 +8,15 @@ from django.http import HttpResponse, Http404
 
 def portfolio(request):
     projects = Project.objects.all() # select * from projects
+    proj_img1 = Project.objects.first()
+    if proj_img1:
+        proj_img1 = proj_img1
+    else :
+        None
+        
     context = {
-        "projects": projects
+        "projects": projects,
+        'proj_img1': proj_img1 # instance.proj_img1 if instance else None,
     }
     return render(request, 'portfolio.html', context)
 
