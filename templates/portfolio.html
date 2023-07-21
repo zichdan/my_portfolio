@@ -1,6 +1,83 @@
-{% extends 'basic.html' %} {% block tittle %}Blog{% endblock tittle %}
+{% extends 'basic.html' %} {% block tittle %}Projects{% endblock tittle %}
 {% load static %}
 {% block body %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <h2></h2>
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li>Projects Details</li>
+      </ol>
+    </div>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+  <div class="container">
+
+    <div class="row gy-4">
+      <h2>Projects</h2>
+      <div class="col-lg-8">
+        <div class="portfolio-details-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+
+            
+            {% comment %} <div class="swiper-slide">
+              <img src="{% static 'assets/img/portfolio/portfolio-details-1.jpg' %}" alt="">
+            </div> {% endcomment %}
+
+            <div class="swiper-slide " data-aos="fade-right">
+              <img src="{% static 'assets/img/portfolio/cutlepics.png' %}" alt="">
+            </div>
+
+            {% comment %} <div class="swiper-slide">
+              <img src="{% static 'assets/img/portfolio/portfolio-details-3.jpg' %}" alt="">
+            </div> {% endcomment %}
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <p class="description">Sophisticated  URL-Shortener  aimed at efficiently shortening lengthy links for enhanced user convenience.</p>
+      </div>
+
+      <div class="col-lg-4" data-aos="fade-up">
+        <div class="portfolio-info" data-aos="fade-left">
+          <h3 data-aos="fade-right" data-aos-delay="100">Project information</h3>
+          <ul>
+            <li><strong>Category</strong>: Web design</li>
+            <li><strong>Client</strong>: ASU Company</li>
+            <li><strong>Project date</strong>: 01 March, 2020</li>
+            <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Portfolio Details Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- ======= Services Section ======= -->
 <section id="services" class="services">
@@ -17,65 +94,33 @@
         
       </div>
 
-      <section id="resume" class="resume">
-        <div class="row">
-
-        
+      <div class="row">
         {% if projects %}
           
-        {% for project in projects  %}
+          {% for project in projects  %}
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up">
-            <h4 class="title"><a href="">{{ project.tittle }}</a></h4>
-            <p class="description">{{ project.description }}</p>
-            
-            {% if project.proj_img1 %}
-              <div class="col-lg-4" data-aos="fade-right">
-                <img src="{{ project.proj_img1.url }}" class="img-fluid" alt="no-image"> 
-              </div>
-            {% else %}
-             <p>No image available for this project.</p>
-
-            {% endif %}
-          </div>
-        {% endfor %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <h4 class="title"><a href="">{{ project.tittle }}</a></h4>
+              <p class="description">{{ project.description }}</p>
+              
+              {% if project.proj_img1 %}
+                <div class="col-lg-4" data-aos="fade-right">
+                  <img src="{{ project.proj_img1.url }}" class="img-fluid" alt="no-image"> 
+                </div>
+              {% else %}
+              <p>No image available for this project.</p>
+              {% endif %}
+            </div>
+          {% endfor %}
         {% else %}
 
-        <section>
-          <div>
-            <h1>No Projects Yet</h1>
-          </div>
-        </section>
+          <section>
+            <div>
+              <h1>No Projects Yet</h1>
+            </div>
+          </section>
         {% endif %}
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
-        </div>
-      </section>
-
+      </div>
     </div>
   </section><!-- End Services Section -->
 
