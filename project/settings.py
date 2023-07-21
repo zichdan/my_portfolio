@@ -183,7 +183,7 @@ MESSAGE_TAGS = {
 # Configure the email backend to use SMTP
 # Replace 'smtp.example.com' and '587' with your SMTP server and port.
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.example.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 
 # Replace 'your_email@example.com' and 'your_email_password' with your email credentials.

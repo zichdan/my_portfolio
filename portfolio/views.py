@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
+
+from project import settings
 from .models import *
 from myproject.models import *
 
@@ -48,9 +50,9 @@ def contact(request):
         send_mail(
             'New Contact Form Submission',
             f'Name: {name}\nEmail: {email}\nSubject: {subject}\nMessage: {message}',
-            'ezichdan@gmail.com',  # Replace with the admin email address
+            settings.EMAIL_HOST_USER,  # Replace with the admin email address
             ['ezichdan@gmail.com'],  # Replace with the admin email address
-            fail_silently=True,
+            fail_silently=False,
         )
         messages.success(request, 'Your message has been sent. Thank you!')
         
