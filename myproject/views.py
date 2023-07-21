@@ -6,9 +6,6 @@ from django.http import HttpResponse, Http404
 
 # Create your views here.
 
-
-
-
 def portfolio(request):
     projects = Project.objects.all() # select * from projects
     context = {
