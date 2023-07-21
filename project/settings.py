@@ -179,3 +179,21 @@ MESSAGE_TAGS = {
 
 
 
+#            CONTACT FORM EMAIL VAERIFICATION SETTINGS
+# Configure the email backend to use SMTP
+# Replace 'smtp.example.com' and '587' with your SMTP server and port.
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_PORT = 587
+
+# Replace 'your_email@example.com' and 'your_email_password' with your email credentials.
+EMAIL_HOST_USER = 'ezichdan@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'iwbzktpfpmngxfuc'
+
+# Use TLS (Transport Layer Security) for secure connection with the SMTP server.
+EMAIL_USE_TLS = True
+
+# Set the email address that will be used as the 'From' address in sent emails.
+# DEFAULT_FROM_EMAIL = 'your_email@example.com'
+
