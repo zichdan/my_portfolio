@@ -5,7 +5,6 @@
 
 {% block stylecss %}
 <link href="{% static 'assets/css/add.css' %}" rel="stylesheet">
-
 {% endblock stylecss %}
 
 
@@ -16,57 +15,27 @@
   id="hero"
   class="d-flex flex-column justify-content-center align-items-center"
 >
-  <div class="hero-container" data-aos="fade-in">
-    <h2 class="text-primary text-left p-3">OKORIE DANIEL EZICHI</h2>
-    <p>
-      I'm 
-      <span
-        class="typed"
-        data-typed-items="Backend Developer, Designer, Creative Innovator, Open To Freelancing"
-      ></span>
-    </p>
-  </div>
-  <section>
-  </section>
+
+
+  <p> Proceed To Download The CV!!!</p>
+
   <section>
     <div class="btn-box">
-      <a href="/about" class="btn">About Me</a>
+      <a href="/" class="btn">NO  RETURN TO HOME</a>
 
-      
       {% if resumes %}
       {% for resume in resumes %}
-      <a href="{{ resume.file.url }}" download="{{ resume.file.url }}" class="btn">Download CV</a>
+      <a href="{{ resume.file.url }}" download="{{ resume.file.url }}" class="btn">DOWNLOAD CV</a>
       {% empty %} 
-      <a href="#" class="btn">Download CV</a>
+      <a href="#" class="btn">DOWNLOAD CV</a>
       {% endfor %}
       {% else %}
-      <a href="#" class="btn">Download CV</a>
+      <a href="#" class="btn">DOWNLOAD CV</a>
       {% endif %}
 
-      <a href="/contacts" class="btn">Contact Me</a>
-      <a href="/projects" class="btn">Projects</a>
     </div>
   </section>
-  
 
 </section>
 <!-- End Hero -->
-
 {% endblock Hero %} 
-
-{% block body %} {% for message in messages %}
-<div
-  class="alert alert-{{ message.tags }} alert-dismissible fade show"
-  role="alert"
->
-  <strong>{{message}}</strong>
-  <button
-    type="button"
-    class="btn-close"
-    data-bs-dismiss="alert"
-    aria-label="Close"
-  ></button>
-</div>
-{% endfor %}
-
-{% endblock body %}

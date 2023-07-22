@@ -48,6 +48,7 @@ class ProjectAdmin(admin.ModelAdmin):
     'proj_intro',
     'description',
     'proj_img1',
+    'github_link',
     'date_created',
     'time_created',
     'id',

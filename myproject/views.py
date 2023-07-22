@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from myproject.models import *
 import os
 from django.http import HttpResponse, Http404
@@ -33,7 +34,11 @@ def proj_details(request, pk):
 
 def download_cv(request):
     
-    return render(request, "download_cv.html")
+    resumes = Resume.objects.all() # select * from resumes
+    context = {
+        "resumes": resumes
+    }
+    return render(request, "download_cv.html", context)
 
 
 
@@ -47,6 +52,8 @@ def resume(request):
         "resumes": resumes
     }
     return render(request, 'resume.html', context)
+
+
 
 # def download(request, path):
 #     file_path = os.path.join(settings.MEDIA_ROOT, path)
@@ -69,5 +76,6 @@ def download(request, path):
             response['Content-Disposition'] = f'attachment; filename="{os.path.basename(file_path)}"'
             return response
     raise Http404
+
     
     
