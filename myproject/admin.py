@@ -12,6 +12,8 @@ class ProjectAdminForm(forms.ModelForm):
             # 'category': forms.RadioSelect(),  # Use RadioSelect widget for the category field
             'category': forms.CheckboxSelectMultiple(),  # Use CheckboxSelectMultiple widget for the category field
         }
+      
+
 
 
 # Register your models here.
@@ -47,7 +49,9 @@ class ProjectAdmin(admin.ModelAdmin):
     'proj_img1',
     'date_created',
     'time_created',
+    'id',
 )
+    
     search_fields = ('tittle', 'description', 'proj_img1')    
     list_filter = ( 'tittle','description', 'proj_img1', )
     

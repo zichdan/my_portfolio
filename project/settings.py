@@ -56,8 +56,9 @@ INSTALLED_APPS = [
     'portfolio',
     'authapp',
     'myproject',
-    
+    'bootstrap_datepicker_plus',  # Add the 'bootstrap_datepicker_plus' app to the list
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

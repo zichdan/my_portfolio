@@ -7,10 +7,10 @@
   <div class="container">
 
     <div class="d-flex justify-content-between align-items-center">
-      <h2>Portfoio Details</h2>
+      <h2>Project Details</h2>
       <ol>
         <li><a href="/">Home</a></li>
-        <li>Portfoio Details</li>
+        <li><a href="/projects">Projects</a></li>
       </ol>
     </div>
 
@@ -22,10 +22,9 @@
 <section id="portfolio-details" class="portfolio-details">
   <div class="container">
           
-    {% for project in projects  %}
+    {% if project  %}
 
     <div class="row gy-4">
-      <h2 class="title"><a href="{% url 'proj_details' project.id %}">{{ project.tittle }}</a></h2>
       <div class="col-lg-8">
 
         <div class="portfolio-details-slider swiper">
@@ -33,7 +32,7 @@
 
             {% if project.proj_img1 %}
               <div class="swiper-slide " data-aos="fade-right">
-                <img src="{{ project.proj_img1.url }}" alt="Project Image">
+                <img src="{{ project.proj_img1.url }}"  style="width: 10% ; height: 32% ;" alt="Project Image">
               </div>
             {% else %}
               <div class="swiper-slide">
@@ -81,11 +80,14 @@
       </div>
     </div>
 
-    {% empty %}
+    {% else %}
       <section>
         <div><h2>No Projects To Display Yet!!!</h2></div>
       </section>
-    {% endfor %}
+    {% endif %}
 
   </div>
 </section><!-- End Portfolio Details Section -->
+
+
+{% endblock %} 
