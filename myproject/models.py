@@ -11,6 +11,7 @@ class Category(models.Model):
     
 class Project(models.Model):
     tittle = models.CharField(max_length=60)
+    proj_intro = models.CharField(max_length=500, blank=True, null=True)
     description = models.TextField()
     proj_img1 = models.ImageField(upload_to='projects/proj_img1', blank=True, null=True)
     proj_img2 = models.ImageField(upload_to='projects/proj_img2', blank=True, null=True)

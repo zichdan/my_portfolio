@@ -45,6 +45,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
     list_display = (
     'tittle',
+    'proj_intro',
     'description',
     'proj_img1',
     'date_created',
