@@ -24,7 +24,7 @@
     {% for project in projects  %}
 
     <div class="row gy-4">
-      <h2 class="title"><a href="">Projects</a></h2>
+      <h2 class="title"><a href="">{{ project.tittle }}</a></h2>
       <div class="col-lg-8">
         {% if project.proj_img1 %}
         <div class="portfolio-details-slider swiper">
@@ -37,20 +37,20 @@
         </div>
         {% else %}
         <div class="swiper-slide">
-          <img src="{% static 'assets/img/portfolio/portfolio-details-2.jpg' %}" alt="">
+          <img src="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" style="width: 100% ; height: 62% ;" alt="">
         </div>
         {% endif %}
-        <p class="description" data-aos="fade-up" data-aos-delay="50">Sophisticated  URL-Shortener  aimed at efficiently shortening lengthy links for enhanced user convenience.</p>
+        <p class="description" data-aos="fade-up" data-aos-delay="50">{{ project.description }}</p>
       </div>
 
       <div class="col-lg-4" data-aos="fade-up">
         <div class="portfolio-info" data-aos="fade-left">
           <h3 data-aos="fade-right" data-aos-delay="100">Project information</h3>
           <ul>
-            <li><strong>Category</strong>: Web design</li>
-            <li><strong>Client</strong>: ASU Company</li>
-            <li><strong>Project date</strong>: 01 March, 2020</li>
-            <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+            <li><strong>Category</strong>: {{ project.category }}</li>
+            <li><strong>Client</strong>: {{ project.client }}</li>
+            <li><strong>Project date</strong>: {{ project.date_created }}</li>
+            <li><strong>Project URL</strong>: <a href="#">{{ project.project_url }}</a></li>
           </ul>
         </div>
       </div>
