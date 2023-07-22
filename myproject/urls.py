@@ -10,5 +10,5 @@ urlpatterns = [
     re_path(r"^download/(?P<path>.*)$", serve, {'document_root': settings.MEDIA_ROOT}),
     
     
-    # path('download/<str:path>/', views.download, name='download'),    
+    path('download_cv/', views.download_cv, name='download_cv'),    
 ]

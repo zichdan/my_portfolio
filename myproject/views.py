@@ -31,6 +31,11 @@ def proj_details(request, pk):
     return render(request, "proj_details.html",context)
 
 
+def download_cv(request):
+    
+    return render(request, "download_cv.html")
+
+
 
 '''
 RESUME SECTION
