@@ -20,21 +20,27 @@
 <!-- ======= Portfolio Details Section ======= -->
 <section id="portfolio-details" class="portfolio-details">
   <div class="container">
+          
+    {% for project in projects  %}
 
     <div class="row gy-4">
       <h2 class="title"><a href="">Projects</a></h2>
       <div class="col-lg-8">
+        {% if project.proj_img1 %}
         <div class="portfolio-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
-
             <div class="swiper-slide " data-aos="fade-right">
-              <img src="{% static 'assets/img/portfolio/cutlepics.png' %}" alt="">
+              <img src="{{ project.proj_img1.url }}" alt="Project Image">
             </div>
-
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        <p class="description">Sophisticated  URL-Shortener  aimed at efficiently shortening lengthy links for enhanced user convenience.</p>
+        {% else %}
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/portfolio/portfolio-details-2.jpg' %}" alt="">
+        </div>
+        {% endif %}
+        <p class="description" data-aos="fade-up" data-aos-delay="50">Sophisticated  URL-Shortener  aimed at efficiently shortening lengthy links for enhanced user convenience.</p>
       </div>
 
       <div class="col-lg-4" data-aos="fade-up">
@@ -48,8 +54,13 @@
           </ul>
         </div>
       </div>
-
     </div>
+    {% empty %}
+      <section>
+        <div><h2>No Projects To Display Yet!!!</h2></div>
+      </section>
+    {% endfor %}
+
 
   </div>
 </section><!-- End Portfolio Details Section -->
@@ -59,61 +70,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- ======= Services Section ======= -->
-<section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Portfolio</h2>
-
-        <p>"Great pains are taken to obtain benefits. 
-            His necessities result in something that he indeed avoids. 
-            There is no one who loves pain itself. And no one who prevents the pursuit of pleasure, because it is pain, 
-            but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful."
-        </p>
-        
-      </div>
-
-      <div class="row">
-        {% if projects %}
-          
-          {% for project in projects  %}
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <h4 class="title"><a href="">{{ project.tittle }}</a></h4>
-              <p class="description">{{ project.description }}</p>
-              
-              {% if project.proj_img1 %}
-                <div class="col-lg-4" data-aos="fade-right">
-                  <img src="{{ project.proj_img1.url }}" class="img-fluid" alt="no-image"> 
-                </div>
-              {% else %}
-              <p>No image available for this project.</p>
-              {% endif %}
-            </div>
-          {% endfor %}
-        {% else %}
-
-          <section>
-            <div>
-              <h1>No Projects Yet</h1>
-            </div>
-          </section>
-        {% endif %}
-      </div>
-    </div>
-  </section><!-- End Services Section -->
 
 
 
