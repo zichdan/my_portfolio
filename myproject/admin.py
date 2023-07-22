@@ -27,12 +27,7 @@ class CategoryAdmin(admin.ModelAdmin):
     
 
 class ProjectAdmin(admin.ModelAdmin):
-#     list_display = (
-#     'tittle',
-#     'description',
-#     'proj_img1',
-#     'date_created',
-# )
+    
     form = ProjectAdminForm
     filter_horizontal = ('category',)  # Display the category field as a checkbox select multiple
     
@@ -46,8 +41,13 @@ class ProjectAdmin(admin.ModelAdmin):
             form.cleaned_data['category'] = category_value
         super().save_model(request, obj, form, change)
 
-    
-    
+    list_display = (
+    'tittle',
+    'description',
+    'proj_img1',
+    'date_created',
+    'time_created',
+)
     search_fields = ('tittle', 'description', 'proj_img1')    
     list_filter = ( 'tittle','description', 'proj_img1', )
     
