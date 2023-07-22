@@ -32,13 +32,6 @@ def proj_details(request, pk):
 
 
 
-def project_detail(request, project_id):
-    projects = Project.objects.get(pk=project_id) # query projects one after another
-    
-    context = {"projects": projects}
-    return render(request, "project_detail.html",context)
-
-
 '''
 RESUME SECTION
 '''
