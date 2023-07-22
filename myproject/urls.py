@@ -4,8 +4,8 @@ from django.views.static import serve
 from django.conf import settings
 
 urlpatterns = [
-    path('portfolio/', views.portfolio, name='portfolio'),
-    path('portfolio_details/', views.portfolio_details, name='portfolio_details'),
+    path('projects/', views.projects, name='projects'),
+    path('proj_details/<str:pk>/', views.proj_details, name='proj_details'),
     path('resume/', views.resume, name='resume'),
     re_path(r"^download/(?P<path>.*)$", serve, {'document_root': settings.MEDIA_ROOT}),
     

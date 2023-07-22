@@ -6,7 +6,7 @@ from django.http import HttpResponse, Http404
 
 # Create your views here.
 
-def portfolio(request):
+def projects(request):
     projects = Project.objects.all() # select * from projects
     
     # proj_img1 = Project.objects.first()
@@ -19,14 +19,16 @@ def portfolio(request):
         "projects": projects,
         # 'proj_img1': proj_img1 # instance.proj_img1 if instance else None,
     }
-    return render(request, 'portfolio.html', context)
+    return render(request, 'projects.html', context)
 
 
 
-
-def portfolio_details(request):
-    return render(request, 'portfolio_details.html')
-
+def proj_details(request, pk):
+    
+    projects = Project.objects.get(id=pk) # query projects one after another
+    
+    context = {"projects": projects}
+    return render(request, "proj_details.html",context)
 
 
 

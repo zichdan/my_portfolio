@@ -10,6 +10,7 @@
       <h2></h2>
       <ol>
         <li><a href="/">Home</a></li>
+        <li><a href="{% url 'p' %}">Home</a></li>
         <li>Projects Details</li>
       </ol>
     </div>
@@ -24,7 +25,7 @@
     {% for project in projects  %}
 
     <div class="row gy-4">
-      <h2 class="title"><a href="">{{ project.tittle }}</a></h2>
+      <h2 class="title"><a href="{% url 'proj_details' project.id %}">{{ project.tittle }}</a></h2>
       <div class="col-lg-8">
         {% if project.proj_img1 %}
         <div class="portfolio-details-slider swiper">
