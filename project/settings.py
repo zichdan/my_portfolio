@@ -104,10 +104,10 @@ DATABASES = {
 }
 
 
-# render postgresql database setup
-database_url = os.environ.get('DATABASE_URL')
+# # render postgresql database setup
+# database_url = os.environ.get('DATABASE_URL')
 
-DATABASES['default'] = dj_database_url.parse(database_url)
+# DATABASES['default'] = dj_database_url.parse(database_url)
 
     
     
@@ -164,7 +164,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 
