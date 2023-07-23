@@ -34,11 +34,12 @@
 
       
       {% if resumes %}
-      {% for resume in resumes %}
-      <a href="{% url 'download_cv' %}" class="btn">Download CV</a>
-      {% empty %} 
-      <a href="#" class="btn">Download CV</a>
-      {% endfor %}
+      
+        {% for resume in resumes %}
+        <a href="{% url 'download_cv' %}" class="btn">Download CV</a>
+        {% empty %} 
+        <a href="#" class="btn">Download CV</a>
+        {% endfor %}
       {% else %}
       <a href="#" class="btn">Download CV</a>
       {% endif %}
