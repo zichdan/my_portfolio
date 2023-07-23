@@ -20,30 +20,30 @@
 
 
  <!-- ======= Contact Section ======= -->
- <section  class="contact">
-    <div class="container">
+ <section  class="contact" data-aos="fade-up" data-aos-delay="100">
+    <div class="container" data-aos="fade-left" data-aos-delay="150">
 
       <div class="section-title">
         <h2>Send Me A Message</h2>
       </div>
 
-      <div class="row" data-aos="fade-in">
+      <div class="row" data-aos="fade-in" data-aos-delay="170" >
 
         <div class="col-lg-5 d-flex align-items-stretch">
-          <div class="info">
-            <div class="address">
+          <div class="info" data-aos="fade-up" data-aos-delay="150">
+            <div class="address" data-aos="fade-right" data-aos-delay="160">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
               <p>OKIGWE, IMO STATE,  470105, NIGERIA </p>
             </div>
 
-            <div class="email">
+            <div class="email" data-aos="fade-up" data-aos-delay="170">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
               <p>zichdan1999@gmail.com</p>
             </div>
 
-            <div class="phone">
+            <div class="phone" data-aos="fade-right" data-aos-delay="180">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
               <p>+234 9020 098 489</p>
@@ -55,24 +55,24 @@
 
 
         <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-          <form action="/contacts/" method="post"  class="php-email-form">
+          <form action="/contacts/" method="post"  class="php-email-form" data-aos="fade-up" data-aos-delay="120">
             {% csrf_token %}
             
             <div class="row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-6" data-aos="fade-right" data-aos-delay="100">
                 <label for="name">Your Name</label>
                 <input type="text" name="name" class="form-control"  required>
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-6" data-aos="fade-left" data-aos-delay="150">
                 <label for="name">Your Email</label>
                 <input type="email" class="form-control" name="email"  required>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-up" data-aos-delay="200">
               <label for="name">Subject</label>
               <input type="text" class="form-control" name="subject"   required>
             </div>
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-up" data-aos-delay="250">
               <label for="name">Message</label>
               <textarea class="form-control" name="message" rows="10" required></textarea>
             </div>
