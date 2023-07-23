@@ -11,13 +11,8 @@ from myproject.models import *
 # Create your views here.
 
 def home(request):
-    resumes = Resume.objects.all()
     
-    context = {
-        "resumes": resumes
-    }
-    
-    return render(request, 'home.html', context)
+    return render(request, 'home.html')
 
 
 

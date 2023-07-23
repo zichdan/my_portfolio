@@ -23,15 +23,11 @@
     <div class="btn-box">
       <a href="/" class="btn">NO  RETURN TO HOME</a>
 
-      {% if resumes %}
       {% for resume in resumes %}
       <a href="{{ resume.file.url }}" download="{{ resume.file.url }}" class="btn">DOWNLOAD CV</a>
       {% empty %} 
       <a href="#" class="btn">DOWNLOAD CV</a>
       {% endfor %}
-      {% else %}
-      <a href="#" class="btn">DOWNLOAD CV</a>
-      {% endif %}
 
     </div>
   </section>
