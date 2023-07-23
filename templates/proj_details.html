@@ -74,7 +74,7 @@
             <li><strong>Category</strong>: {{ project.category }}</li>
             <li><strong>Client</strong>: {{ project.client }}</li>
             <li><strong>Project date</strong>: {{ project.date_created }}</li>
-            <li><strong>Source Code</strong>: {{ project.github_link }}</li>
+            <li><strong>Source Code</strong>: <a href="{{ project.github_link }}" target="_blank">{{ project.github_link }}</a></li>
             <li><strong>Project URL</strong>: <a href="{{ project.project_url }}" target="_blank">{{ project.project_url }}</a></li>
           </ul>
         </div>

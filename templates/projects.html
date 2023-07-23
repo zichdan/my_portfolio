@@ -25,7 +25,7 @@
   <div class="container">
           
     <div class="row gy-4">
-      <h2 class="title"><a href="{% url 'proj_details' project.id %}">{{ project.tittle }}</a></h2>
+      <h2 class="title"><a href="{% url 'proj_details' project.slug %}">{{ project.tittle }}</a></h2>
       <div class="col-lg-8">
         {% if project.proj_img1 %}
         <div class="portfolio-details-slider swiper">
@@ -53,13 +53,11 @@
         <div class="portfolio-info" data-aos="fade-left">
           <h3 data-aos="fade-right" data-aos-delay="100">Project information</h3>
           <ul>
-            {% comment %} {% for item in category  %} {% endcomment %}
-            <li><strong>Category</strong>: {{ project.category }}</li>
-            {% comment %} {% endfor %} {% endcomment %}
-            <li><strong>Client</strong>: {{ project.client }}</li>
-            <li><strong>Project date</strong>: {{ project.date_created }}</li>
-            <li><strong>Source Code</strong>: {{ project.github_link }}</li>
-            <li><strong>Project URL</strong>: <a href="{{ project.project_url }}" target="_blank">{{ project.project_url }}</a></li>
+            <li  data-aos="fade-up" data-aos-delay="800"><strong>Category</strong>: {{ project.category }}</li>
+            <li  data-aos="fade-left" data-aos-delay="800"><strong>Client</strong>: {{ project.client }}</li>
+            <li  data-aos="fade-right" data-aos-delay="800"><strong>Project date</strong>: {{ project.date_created }}</li>
+            <li  data-aos="fade-up" data-aos-delay="1000"><strong>Source Code</strong>: <a href="{{ project.github_link }}" target="_blank">{{ project.github_link }}</a></li>
+            <li  data-aos="fade-left" data-aos-delay="800"><strong>Project URL</strong>: <a href="{{ project.project_url }}" target="_blank" >{{ project.project_url }}</a></li>
           </ul>
         </div>
       </div>

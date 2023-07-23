@@ -26,9 +26,9 @@ def projects(request):
 
 
 
-def proj_details(request, pk):
+def proj_details(request, slug):
     
-    project = Project.objects.get(id=pk) # query projects one after another
+    project = Project.objects.get(slug=slug) # query projects one after another
     
     context = {"project": project}
     return render(request, "proj_details.html",context)
