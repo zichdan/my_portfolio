@@ -17,12 +17,13 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
+
+{% for project in projects  %}
+
 <!-- =======  Projects Section ======= -->
 <section id="portfolio-details" class="portfolio-details">
   <div class="container">
           
-    {% for project in projects  %}
-
     <div class="row gy-4">
       <h2 class="title"><a href="{% url 'proj_details' project.id %}">{{ project.tittle }}</a></h2>
       <div class="col-lg-8">
@@ -31,23 +32,30 @@
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide " data-aos="fade-right">
               <img src="{{ project.proj_img1.url }}" alt="Project Image">
+              <p class="description" data-aos="fade-up" data-aos-delay="50">{{ project.proj_intro }}</p>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
         {% else %}
-        <div class="swiper-slide">
-          <img src="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" style="width: 100% ; height: 62% ;" alt="">
+        <div class="portfolio-details-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide " data-aos="fade-right">
+              <img src="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" style="width: 100% ; height: 62% ;" alt="Project Image">
+              <p class="description" data-aos="fade-up" data-aos-delay="50">{{ project.proj_intro }}</p>
+            </div>
+          </div>
         </div>
         {% endif %}
-        <p class="description" data-aos="fade-up" data-aos-delay="50">{{ project.proj_intro }}</p>
+        <div class="swiper-pagination"></div>
       </div>
 
       <div class="col-lg-4" data-aos="fade-up">
         <div class="portfolio-info" data-aos="fade-left">
           <h3 data-aos="fade-right" data-aos-delay="100">Project information</h3>
           <ul>
+            {% comment %} {% for item in category  %} {% endcomment %}
             <li><strong>Category</strong>: {{ project.category }}</li>
+            {% comment %} {% endfor %} {% endcomment %}
             <li><strong>Client</strong>: {{ project.client }}</li>
             <li><strong>Project date</strong>: {{ project.date_created }}</li>
             <li><strong>Source Code</strong>: {{ project.github_link }}</li>
@@ -56,15 +64,15 @@
         </div>
       </div>
     </div>
-    {% empty %}
-      <section>
-        <div><h2>No Projects To Display Yet!!!</h2></div>
-      </section>
-    {% endfor %}
-
-
+   
   </div>
 </section><!-- End  Projects Section -->
+
+{% empty %}
+<section>
+  <div><h2>No Projects To Display Yet!!!</h2></div>
+</section>
+{% endfor %}
 
 
 

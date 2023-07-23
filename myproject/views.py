@@ -10,6 +10,8 @@ from django.http import HttpResponse, Http404
 def projects(request):
     projects = Project.objects.all() # select * from projects
     
+    category = Category.objects.all()  # select * from Category
+    
     # proj_img1 = Project.objects.first()
     # if proj_img1:
     #     proj_img1 = proj_img1
@@ -18,7 +20,7 @@ def projects(request):
         
     context = {
         "projects": projects,
-        # 'proj_img1': proj_img1 # instance.proj_img1 if instance else None,
+        'category': category,
     }
     return render(request, 'projects.html', context)
 
