@@ -47,7 +47,7 @@ DEBUG = os.getenv('DEBUG', 'True')== "True"
 
 # ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split()
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS','localhost').split(',')
 
 
 
