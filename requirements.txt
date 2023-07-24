@@ -1,6 +1,5 @@
 django
 
-
 pillow
 
 psycopg2-binary
@@ -12,3 +11,4 @@ python-dotenv
 whitenoise
 
 django-bootstrap-datepicker-plus
+
