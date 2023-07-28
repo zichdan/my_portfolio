@@ -23,6 +23,9 @@ media
 # C extensions
 *.so
 
+# 712356
+# success 2023
+
 # Distribution / packaging
 .Python
 build/

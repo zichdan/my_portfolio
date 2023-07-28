@@ -187,21 +187,21 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-CSRF_TRUSTED_ORIGINS  = ["https://web-production-102a.up.railway.app"]
-CSRF_ALLOWED_ORIGINS   = ["https://web-production-102a.up.railway.app"]
-CORS_ORIGINS_WHITELIST  = ["https://web-production-102a.up.railway.app"]
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "django.core.files.storage.FileSystemStorage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
+# # STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# CSRF_TRUSTED_ORIGINS  = ["https://web-production-102a.up.railway.app"]
+# CSRF_ALLOWED_ORIGINS   = ["https://web-production-102a.up.railway.app"]
+# CORS_ORIGINS_WHITELIST  = ["https://web-production-102a.up.railway.app"]
 
 
 
