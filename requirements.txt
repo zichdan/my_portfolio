@@ -8,7 +8,7 @@ gunicorn
 dj_database_url
 python-dotenv
 
-whitenoise
+# whitenoise
 
 django-bootstrap-datepicker-plus
 
