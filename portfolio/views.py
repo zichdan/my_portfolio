@@ -8,6 +8,18 @@ from myproject.models import *
 from project import settings
 from django.core.mail import EmailMessage
 
+#  Email threading
+import threading
+
+#Function for Emailthread
+class EmailThread(threading.Thread):
+    def __init__(self, email_message):
+        self.email_message=email_message
+        threading.Thread.__init__(self)
+        
+    def run(self):
+        self.email_message.send()
+
 
 # Create your views here.
 
