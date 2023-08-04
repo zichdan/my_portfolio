@@ -55,23 +55,23 @@ def contacts(request):
         Contact.objects.create(name=name, email=email, subject=subject, message=message)
 
         # Additional logic: Send an email to the site admin
-        send_mail(
+        email_message = EmailMessage(
             'New Contact Form Submission',
             f'Name: {name}\nEmail: {email}\nSubject: {subject}\nMessage: {message}',
             settings.EMAIL_HOST_USER,  # Replace with the admin email address
             ['ezichdan@gmail.com'],  # Replace with the admin email address
-            fail_silently=False,
         )
         
         
         #  Additional logic: Send a confirmation email to the user (optional)
-        send_mail(
+        mail_message = EmailMessage(
             'Confirmation of Your Contact Form Submission',
             'Thank you for contacting us. We have received your message.',
             settings.EMAIL_HOST_USER,  # Replace with the site's email address
             [email],  # Use the user's email address for the recipient
-            fail_silently=False,
         )
+        
+        EmailThread(email_message).start()
         messages.success(request, 'Your message has been sent. Thank you!')
         
         return redirect('/contacts')
