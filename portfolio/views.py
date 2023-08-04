@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.core.mail import send_mail
 
-from project import settings
 from .models import *
 from myproject.models import *
 
+# Email configurations
+from project import settings
+from django.core.mail import EmailMessage
 
 
 # Create your views here.
